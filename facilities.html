@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRE Balaji School – Facilities</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">SRE Balaji School</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="classes.html">Classes</a></li>
+    <li><a href="branches.html">Branches</a></li>
+    <li><a href="principal.html">Principal</a></li>
+    <li><a href="facilities.html" class="active">Facilities</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="admission.html">Whatsapp</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main class="page-inner">
+  <div class="inner-wrap">
+    <p class="sec-tag">Campus</p>
+    <h2 class="sec-title">Our Facilities</h2>
+    <div class="sec-divider"></div>
+    <p class="classes-intro">We believe a great school environment shapes great students. Our campus is equipped to support learning, health, and recreation every day.</p>
+
+    <div class="fac-grid">
+      <div class="fac-card">
+        <div class="fac-icon-wrap" style="background:#fff7e6;">🍽️</div>
+        <div class="fac-name">School Canteen</div>
+        <p class="fac-desc">Our hygienic and well-equipped canteen provides nutritious, freshly prepared meals and snacks for students every school day. Healthy eating is our priority.</p>
+        <ul class="fac-points">
+          <li>✔ Fresh food daily</li>
+          <li>✔ Hygienic preparation</li>
+          <li>✔ Affordable pricing</li>
+          <li>✔ Vegetarian options</li>
+        </ul>
+      </div>
+
+      <div class="fac-card">
+        <div class="fac-icon-wrap" style="background:#e6f4ff;">💧</div>
+        <div class="fac-name">Clean Drinking Water</div>
+        <p class="fac-desc">Clean and safe drinking water is available throughout the campus. We ensure students and staff have access to purified water at all times.</p>
+        <ul class="fac-points">
+          <li>✔ Purified water supply</li>
+          <li>✔ Multiple water stations</li>
+          <li>✔ Regularly maintained</li>
+          <li>✔ Available all day</li>
+        </ul>
+      </div>
+
+      <div class="fac-card">
+        <div class="fac-icon-wrap" style="background:#e6fff0;">🏟️</div>
+        <div class="fac-name">Big Play Ground</div>
+        <p class="fac-desc">Our expansive playground gives students ample space for physical activities, sports, and recreation — promoting health, teamwork, and a joyful school life.</p>
+        <ul class="fac-points">
+          <li>✔ Large open ground</li>
+          <li>✔ Cricket & football area</li>
+          <li>✔ Safe play zones</li>
+          <li>✔ Morning & evening use</li>
+        </ul>
+      </div>
+
+      <div class="fac-card">
+        <div class="fac-icon-wrap" style="background:#fff0e6;">🚐</div>
+        <div class="fac-name">Van Service to All Areas</div>
+        <p class="fac-desc">We offer reliable van transport to and from the school across all nearby neighborhoods, ensuring safe and convenient travel for students each day.</p>
+        <ul class="fac-points">
+          <li>✔ Daily pick-up & drop-off</li>
+          <li>✔ Covered routes in all areas</li>
+          <li>✔ Trained drivers & escorts</li>
+          <li>✔ Flexible timing for all classes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 <span>SRE Balaji Matriculation Higher Secondary School</span> &nbsp;|&nbsp; Mugantha Nalur, Sakkottai
+</footer>
+<script src="nav.js"></script>
+<script>
+  if (performance.getEntriesByType('navigation')[0] && performance.getEntriesByType('navigation')[0].type === 'reload') {
+    window.location.replace('index.html');
+  }
+</script>
+</body>
+</html>

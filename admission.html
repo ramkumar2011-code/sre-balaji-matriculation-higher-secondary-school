@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRE Balaji School – Admission</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">SRE Balaji School</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="classes.html">Classes</a></li>
+    <li><a href="branches.html">Branches</a></li>
+    <li><a href="principal.html">Principal</a></li>
+    <li><a href="facilities.html">Facilities</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="admission.html" class="active">Whatsapp</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main class="page-inner page-alt">
+  <div class="inner-wrap">
+    <p class="sec-tag">Join Us</p>
+    <h2 class="sec-title">WhatsApp</h2>
+    <div class="sec-divider"></div>
+
+    <div class="adm-grid">
+
+      <!-- WhatsApp Card -->
+      <div class="wa-card">
+        <span class="wa-icon">💬</span>
+        <div class="wa-title">Chat on WhatsApp</div>
+        <p class="wa-desc">Have a quick question about admissions, fees, or school timings? Reach us directly on WhatsApp — we're happy to help anytime!</p>
+        <a class="wa-btn" href="https://wa.me/919999999999?text=Hello%2C%20I%20am%20interested%20in%20admission%20at%20SRE%20Balaji%20Matriculation%20Higher%20Secondary%20School." target="_blank">
+          💬 Chat Now on WhatsApp
+        </a>
+        <div class="wa-steps">
+          <div class="wa-step">1️⃣ Click the button above</div>
+          <div class="wa-step">2️⃣ WhatsApp opens automatically</div>
+          <div class="wa-step">3️⃣ Send your enquiry message</div>
+          <div class="wa-step">4️⃣ We'll reply within minutes!</div>
+        </div>
+<script src="nav.js"></script>
+<script>
+  function submitForm() {
+    const name = document.getElementById('stuName').value.trim();
+    const parent = document.getElementById('parentName').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
+    const cls = document.getElementById('classApply').value;
+
+    if (!name || !parent || !mobile || !cls) {
+      alert('Please fill in all required fields (*).');
+      return;
+    }
+    if (!/^[6-9]\d{9}$/.test(mobile)) {
+      alert('Please enter a valid 10-digit Indian mobile number.');
+      return;
+    }
+
+    document.getElementById('stuName').value = '';
+    document.getElementById('parentName').value = '';
+    document.getElementById('mobile').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('classApply').value = '';
+    document.getElementById('message').value = '';
+
+    const msg = document.getElementById('successMsg');
+    msg.style.display = 'block';
+    setTimeout(() => { msg.style.display = 'none'; }, 6000);
+  }
+</script>
+</body>
+</html>

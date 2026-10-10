@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRE Balaji School – Our Branches</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .branches-intro {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .branches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    width: 100%;
+    margin-bottom: 2.5rem;
+  }
+
+  .branch-card {
+    background: var(--white);
+    border: 1.5px solid #e0e8f5;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+  }
+
+  .branch-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 45px rgba(13,43,94,0.13);
+    border-color: var(--gold);
+  }
+
+  .branch-header {
+    background: linear-gradient(135deg, var(--navy), #1e3d7a);
+    padding: 1.8rem 1.6rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .branch-header::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 100px; height: 100px;
+    background: rgba(201,162,39,0.1);
+    border-radius: 50%;
+  }
+
+  .branch-number {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+  }
+
+  .branch-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--white);
+    font-weight: 700;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+  }
+
+  .branch-body {
+    padding: 1.5rem 1.6rem;
+  }
+
+  .branch-address-block {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .branch-pin {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .branch-address {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.65;
+    font-weight: 600;
+  }
+
+  .branch-district {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .branch-divider {
+    height: 1px;
+    background: #eef2f9;
+    margin: 1rem 0;
+  }
+
+  .branch-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1.1rem;
+  }
+
+  .branch-tag {
+    background: rgba(13,43,94,0.06);
+    border: 1px solid #dde5f5;
+    border-radius: 50px;
+    padding: 4px 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.3px;
+  }
+
+  .branch-map-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.83rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .branch-map-btn:hover {
+    background: #1a3a7a;
+    transform: translateY(-1px);
+  }
+
+  .branch-card.main-branch .branch-header {
+    background: linear-gradient(135deg, #7a4f00, #c9a227);
+  }
+
+  .branch-card.main-branch {
+    border-color: rgba(201,162,39,0.5);
+  }
+
+  .main-label {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50px;
+    padding: 3px 10px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Summary bar */
+  .summary-bar {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: var(--navy);
+    border-radius: 14px;
+    padding: 1.4rem 2rem;
+    width: 100%;
+  }
+
+  .summary-item {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .summary-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .summary-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.65);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .summary-sep {
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+    align-self: stretch;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">SRE Balaji School</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="classes.html">Classes</a></li>
+    <li><a href="branches.html" class="active">Branches</a></li>
+    <li><a href="principal.html">Principal</a></li>
+    <li><a href="facilities.html">Facilities</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="admission.html">Whatsapp</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main class="page-inner">
+  <div class="inner-wrap">
+    <p class="sec-tag">Our Network</p>
+    <h2 class="sec-title">School Branches</h2>
+    <div class="sec-divider"></div>
+    <p class="branches-intro">SRE Balaji Matriculation Higher Secondary School proudly serves students across three locations — bringing quality education closer to every family.</p>
+
+    <div class="branches-grid">
+
+      <!-- Branch 1 – Kumbakonam -->
+      <div class="branch-card">
+        <div class="branch-header">
+          <div class="branch-number">Branch 1</div>
+          <div class="branch-name">Kumbakonam Branch</div>
+        </div>
+        <div class="branch-body">
+          <div class="branch-address-block">
+            <span class="branch-pin">📍</span>
+            <div>
+              <div class="branch-address">Near Old Bus Stand,<br>MLA Office Room,<br>Kumbakonam</div>
+              <div class="branch-district">Tamil Nadu, India</div>
+            </div>
+          </div>
+          <div class="branch-divider"></div>
+          <div class="branch-tags">
+            <span class="branch-tag">🏫 LKG – 5th</span>
+            <span class="branch-tag">🚌 Near Bus Stand</span>
+            <span class="branch-tag">🏛️ MLA Office Area</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Branch 2 – Muganthanalur (Main) -->
+      <div class="branch-card main-branch">
+        <div class="branch-header">
+          <span class="main-label">⭐ Main Campus</span>
+          <div class="branch-number">Branch 2</div>
+          <div class="branch-name">Muganthanalur Branch</div>
+        </div>
+        <div class="branch-body">
+          <div class="branch-address-block">
+            <span class="branch-pin">📍</span>
+            <div>
+              <div class="branch-address">Muganthanalur,<br>Sakkottai</div>
+              <div class="branch-district">Tamil Nadu, India</div>
+            </div>
+          </div>
+          <div class="branch-divider"></div>
+          <div class="branch-tags">
+            <span class="branch-tag">🏫 LKG – 12th</span>
+            <span class="branch-tag">🏡 Main Campus</span>
+            <span class="branch-tag">🏟️ Big Playground</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Branch 3 – Melakavery -->
+      <div class="branch-card">
+        <div class="branch-header">
+          <div class="branch-number">Branch 3</div>
+          <div class="branch-name">Melakavery Branch</div>
+        </div>
+        <div class="branch-body">
+          <div class="branch-address-block">
+            <span class="branch-pin">📍</span>
+            <div>
+              <div class="branch-address">Melakavery</div>
+              <div class="branch-district">Tamil Nadu, India</div>
+            </div>
+          </div>
+          <div class="branch-divider"></div>
+          <div class="branch-tags">
+            <span class="branch-tag">🏫 LKG – 12th</span>
+            <span class="branch-tag">🌿 Melakavery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 <span>SRE Balaji Matriculation Higher Secondary School</span> &nbsp;|&nbsp; Mugantha Nalur, Sakkottai
+</footer>
+<script src="nav.js"></script>
+</body>
+</html>
